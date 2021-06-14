@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: champDetails.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: champDetails.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import PropTypes from "prop-types";
+
+/**
+ *
+ * A modal component that will show all the details of a particular champ
+ *
+ * @param {Function} toggleModal - Handler to close modal
+ * @param {Object} champDetails - Contains all details (properties) of a particular champ
+ */
+
+const ChampDetails = ({ toggleModal, champDetails }) => {
+  return (
+    &lt;div className="modal-container">
+      &lt;div className="hero">
+        &lt;div className="image-wrapper">
+          &lt;img src={champDetails.big_image_url} alt="champ-image" />
+        &lt;/div>
+        &lt;div className="intro">
+          &lt;h2>{champDetails.name}&lt;/h2>
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="description">
+        &lt;div className="feature">
+          &lt;span className="heading">Armor&lt;/span>
+          &lt;span className="value">
+            {champDetails.armor ? champDetails.armor : "NA"}
+            &lt;span className="per-level">
+              {champDetails.armorperlevel ? champDetails.armorperlevel : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Attack Damage&lt;/span>
+          &lt;span className="value">
+            {champDetails.attackdamage ? champDetails.attackdamage : "NA"}
+            &lt;span className="per-level">
+              {champDetails.attackdamageperlevel}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Attack range&lt;/span>
+          &lt;span className="value">
+            {champDetails.attackrange ? champDetails.attackrange : "NA"}
+            &lt;span className="per-level">
+              {champDetails.attackrangeperlevel
+                ? champDetails.attackrangeperlevel
+                : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Attack speed offset&lt;/span>
+          &lt;span className="value">
+            {champDetails.attackspeedoffset
+              ? champDetails.attackspeedoffset
+              : "NA"}
+            &lt;span className="per-level">
+              {champDetails.attackspeedperlevel
+                ? champDetails.attackspeedperlevel
+                : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Crit&lt;/span>
+          &lt;span className="value">
+            {champDetails.crit ? champDetails.crit : "NA"}
+            &lt;span className="per-level">
+              {champDetails.critperlevel ? champDetails.critperlevel : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">HP regen&lt;/span>
+          &lt;span className="value">
+            {champDetails.hp ? champDetails.hp : "NA"}
+            &lt;span className="per-level">
+              {champDetails.hpperlevel ? champDetails.hpperlevel : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Movespeed&lt;/span>
+          &lt;span className="value">
+            {champDetails.movespeed ? champDetails.movespeed : "NA"}
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">MP&lt;/span>
+          &lt;span className="value">
+            {champDetails.mp ? champDetails.mp : "NA"}
+            &lt;span className="per-level">
+              {champDetails.mpperlevel ? champDetails.mpperlevel : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">MP regen&lt;/span>
+          &lt;span className="value">
+            {champDetails.mpregen ? champDetails.mpregen : "NA"}
+            &lt;span className="per-level">
+              {champDetails.mpregenperlevel
+                ? champDetails.mpregenperlevel
+                : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+        &lt;div className="feature">
+          &lt;span className="heading">Spellback&lt;/span>
+          &lt;span className="value">
+            {champDetails.spellback ? champDetails.spellback : "NA"}
+            &lt;span className="per-level">
+              {champDetails.spellbackperlevel
+                ? champDetails.spellbackperlevel
+                : "NA"}
+            &lt;/span>
+          &lt;/span>
+        &lt;/div>
+      &lt;/div>
+      &lt;div className="close-modal" onClick={toggleModal}>&lt;/div>
+    &lt;/div>
+  );
+};
+
+ChampDetails.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
+  champDetails: PropTypes.shape({
+    big_image_url: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    armor: PropTypes.isRequired,
+    armorperlevel: PropTypes.isRequired,
+    attackdamage: PropTypes.isRequired,
+    attackdamageperlevel: PropTypes.isRequired,
+    attackrange: PropTypes.isRequired,
+    attackrangeperlevel: PropTypes.isRequired,
+    attackspeedoffset: PropTypes.isRequired,
+    attackspeedperlevel: PropTypes.isRequired,
+    crit: PropTypes.isRequired,
+    critperlevel: PropTypes.isRequired,
+    hp: PropTypes.isRequired,
+    hpperlevel: PropTypes.isRequired,
+    movespeed: PropTypes.isRequired,
+    mp: PropTypes.isRequired,
+    mpperlevel: PropTypes.isRequired,
+    mpregen: PropTypes.isRequired,
+    mpregenperlevel: PropTypes.isRequired,
+    spellback: PropTypes.isRequired,
+    spellbackperlevel: PropTypes.isRequired,
+  }),
+};
+
+export default ChampDetails;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ChampDetails">ChampDetails</a></li><li><a href="global.html#ChampsGrid">ChampsGrid</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#WatchList">WatchList</a></li><li><a href="global.html#WithLoader">WithLoader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Nov 28 2020 23:58:33 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: dashboard.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: dashboard.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import ChampsGrid from "./champsGrid";
+import Pagination from "./pagination";
+import { objIsEmpty } from "../utils/utilityFunc";
+import PropTypes from "prop-types";
+import WithLoader from "./withLoader";
+
+const ChampsGridWithLoading = WithLoader(ChampsGrid);
+
+/**
+ * Dashboard component to list, search, sort, add to favorite champs list
+ * @param {Array} champs - List of all champions fetched from Pandascore
+ * @param {Function} handleWatchList - Add champ to watchlist handler
+ * @param {Function} changeSortOrder - Handler to change sort order of champs grid
+ * @param {Object} sortOrder - Order in which champions must be sorted or not
+ * @param {Boolean} isLoading - Indicates if the champs list is getting fetched via api
+ */
+
+const Dashboard = ({
+  champs,
+  handleWatchList,
+  changeSortOrder,
+  sortOrder,
+  isLoading,
+}) => {
+  const champsPerPage = 8;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchText, setSearchText] = useState("");
+
+  let indexOfFirstChamp;
+  let indexOfLastChamp;
+  let currentChamps;
+  let champsCount;
+
+  if (searchText.trim()) {
+    currentChamps = champs.filter((champ) =>
+      champ["name"].toLowerCase().includes(searchText.toLowerCase())
+    );
+    champsCount = currentChamps.length;
+    indexOfLastChamp = currentPage * champsPerPage;
+    indexOfFirstChamp = indexOfLastChamp - champsPerPage;
+    currentChamps = currentChamps.slice(indexOfFirstChamp, indexOfLastChamp);
+  } else {
+    champsCount = champs.length;
+    // Get champs on current page
+    indexOfLastChamp = currentPage * champsPerPage;
+    indexOfFirstChamp = indexOfLastChamp - champsPerPage;
+    currentChamps = champs.slice(indexOfFirstChamp, indexOfLastChamp);
+  }
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  function handleSearchChange(e) {
+    e.preventDefault();
+    setSearchText(e.target.value);
+    setCurrentPage(1);
+  }
+
+  return (
+    &lt;>
+      &lt;div className="champs-grid-container container">
+        &lt;h1>League of legends champions&lt;/h1>
+        &lt;div className="searchbox">
+          &lt;i className="fa fa-search">&lt;/i>
+          &lt;input
+            type="text"
+            className="search-champs-input"
+            placeholder="Search champion by name"
+            onChange={handleSearchChange}
+            value={searchText}
+          />
+          &lt;div className="sort-results" onClick={changeSortOrder}>
+            &lt;span className="sort-criteria">Sort by name&lt;/span>
+            {!objIsEmpty(sortOrder) &amp;&amp; (
+              &lt;i
+                className={`fas fa-sort-alpha-${
+                  sortOrder.order === "asc" ? "up" : "down-alt"
+                }`}
+              />
+            )}
+          &lt;/div>
+        &lt;/div>
+        &lt;ChampsGridWithLoading
+          isLoading={isLoading}
+          champs={currentChamps}
+          addToWatchList={handleWatchList}
+        />
+        {/* &lt;ChampsGrid
+          champs={currentChamps}
+          addToWatchList={handleWatchList}
+        /> */}
+        &lt;Pagination
+          champsPerPage={champsPerPage}
+          totalChamps={champsCount}
+          paginate={paginate}
+          currentPage={currentPage}
+        />
+      &lt;/div>
+    &lt;/>
+  );
+};
+
+Dashboard.propTypes = {
+  /**
+   * List of all champions fetched from Pandascore
+   */
+  champs: PropTypes.array.isRequired,
+  /**
+   * Order in which champions must be sorted or not
+   */
+  sortOrder: PropTypes.shape({
+    order: PropTypes.any,
+  }),
+  /**
+   * Handler for adding a champ to watchlist
+   */
+  handleWatchList: PropTypes.func.isRequired,
+  /**
+   * Handler for changing the sort order
+   */
+  changeSortOrder: PropTypes.func.isRequired,
+  /**
+   * Indicates if the champs list is getting fetched via api
+   */
+  isLoading: PropTypes.any.isRequired,
+};
+
+export default Dashboard;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ChampDetails">ChampDetails</a></li><li><a href="global.html#ChampsGrid">ChampsGrid</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Loader">Loader</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#WatchList">WatchList</a></li><li><a href="global.html#WithLoader">WithLoader</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.6</a> on Sat Nov 28 2020 23:58:33 GMT+0530 (India Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

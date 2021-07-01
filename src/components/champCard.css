@@ -1,0 +1,79 @@
+.champ-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 8px #888888;
+  padding: 1rem 1rem 0 1rem;
+  margin: 1rem 1rem 1rem 1rem;
+}
+
+.champ-img {
+  border-radius: 50%;
+}
+
+.champ-card .champ-name {
+    color: rgb(4, 121, 255);
+    cursor: pointer;
+  }
+  
+.champ-card .champ-name:hover {
+    text-decoration: underline;
+  }
+
+
+/* Add to watch styling */
+.add-to-watch {
+  visibility: hidden;
+}
+
+.add-to-watch::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  display: inline-block;
+  padding-right: 3px;
+  margin-left: -8px;
+  margin-top: -20px;
+  vertical-align: middle;
+  font-weight: 900;
+  visibility: visible;
+  font-size: 1.5rem;
+  color: #e0e0da;
+}
+
+.add-to-watch:checked::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  display: inline-block;
+  padding-right: 3px;
+  margin-left: -8px;
+  margin-top: -20px;
+  vertical-align: middle;
+  font-weight: 900;
+  visibility: visible;
+  font-size: 1.5rem;
+  color: #ffdf00;
+}
+  
+.ReactModal__Content.ReactModal__Content--after-open {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    right: 60px;
+    bottom: 60px;
+    background: rgb(255, 255, 255);
+    overflow: auto;
+    border-radius: 0.5rem;
+    outline: none;
+    box-shadow: 0px 0px 8px #888888;
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+  }
+  
+.close-champ-modal::before {
+    content: "x";
+    color: #fff;
+    font-weight: 300;
+    font-family: Arial, sans-serif;
+  }
+  
+  

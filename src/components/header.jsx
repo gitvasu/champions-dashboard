@@ -1,6 +1,7 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import './header.css';
 
 /**
  * Header (A simple Pure component)

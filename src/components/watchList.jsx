@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ChampsGrid from "./champsGrid";
 import Pagination from "./pagination";
 import PropTypes from "prop-types";
+import './watchList.css';
 
 /**
  * Component for viewing champions added to watchlist

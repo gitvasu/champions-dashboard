@@ -4,6 +4,7 @@ import Pagination from "./pagination";
 import { objIsEmpty } from "../utils/utilityFunc";
 import PropTypes from "prop-types";
 import WithLoader from "./withLoader";
+import './dashboard.css';
 
 const ChampsGridWithLoading = WithLoader(ChampsGrid);
 

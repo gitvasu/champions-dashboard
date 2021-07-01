@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import './pagination.css';
 
 /**
  * Component for showing page numbers and navigation links

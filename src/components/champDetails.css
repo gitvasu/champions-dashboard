@@ -1,0 +1,69 @@
+.modal-container {
+    display: flex;
+    padding: 2rem;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    margin-right: 2rem;
+  }
+  
+  .image-wrapper {
+    height: 450px;
+    width: 310px;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    max-width: 310px;
+    border-radius: 1rem;
+  }
+  
+  .intro {
+    text-align: center;
+  }
+  
+  .description {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-left: 1rem;
+    justify-content: space-between;
+  }
+  
+  .feature .heading {
+    font-weight: bold;
+  }
+  
+  .feature .heading::after {
+    content: ":";
+  }
+  
+  .feature {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .close-modal::before {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    content: "X";
+    font-size: 1.8rem;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+  }
+  
+  span.per-level::before {
+    content: ", ";
+  }
+  
+  span.per-level::after {
+    content: " per level";
+  }
+  
+  span.per-level {
+    font-style: italic;
+  }

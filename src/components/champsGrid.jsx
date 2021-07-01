@@ -1,6 +1,7 @@
 import React from "react";
 import ChampCard from "./champCard";
 import PropTypes from "prop-types";
+import './champsGrid.css';
 
 /**
  * Grid component to show champs of particular page

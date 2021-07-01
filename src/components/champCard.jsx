@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import ChampDetails from "./champDetails";
 import PropTypes from "prop-types";
+import './champCard.css';
 
 const ChampCard = ({ champ, addToWatchList, inWatchList }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -37,7 +38,7 @@ const ChampCard = ({ champ, addToWatchList, inWatchList }) => {
   );
 };
 
-Modal.setAppElement("#root");
+//Modal.setAppElement("#root");
 
 ChampCard.propTypes = {
   champ: PropTypes.shape({

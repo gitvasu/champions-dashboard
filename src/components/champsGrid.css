@@ -1,0 +1,25 @@
+.champs-grid-container {
+    padding: 4rem;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+  }
+  
+  .champs-grid {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    text-align: center;
+  }
+  
+  .champs-grid.animate {
+    transform: translateX(200%);
+    animation: image-animation 2s ease-out forwards;
+  }
+  
+  @keyframes image-animation {
+    0% {
+      transform: translateX(200%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }

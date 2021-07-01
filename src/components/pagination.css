@@ -1,0 +1,43 @@
+.pagination {
+    list-style: none;
+    text-align: center;
+  }
+  
+  .pagination li {
+    margin-right: 0.4rem;
+    display: inline-block;
+  }
+  
+  .page-link {
+    padding: 0.3rem 0.8rem;
+    background-color: white;
+    border: none;
+    color: #5555db;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    font-weight: 600;
+  }
+  
+  .page-link:hover {
+    padding: 0.3rem 0.8rem;
+    background-color: #5555db;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .page-item.current-page-item .page-link {
+    padding: 0.3rem 0.8rem;
+    background-color: #5555db;
+    border: none;
+    color: white;
+    border-radius: 7px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+  }
